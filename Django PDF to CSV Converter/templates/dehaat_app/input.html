@@ -1,0 +1,25 @@
+{% extends 'dehaat_app/base.html' %}
+
+{% block body_block %}
+  <h1> Input Form </h1>
+
+  {% if error %}
+  <p>
+      {{ error }}
+  </p>
+  {% endif %}
+
+  <form method="POST", enctype="multipart/form-data">
+      {% csrf_token %}
+      <p>
+          <table>
+            {{form.as_table}}
+          </table>
+      </p>
+      <p>
+          <input type="submit" class="btn btn-primary" value="Submit">
+      </p>
+
+  </form>
+
+{% endblock %}

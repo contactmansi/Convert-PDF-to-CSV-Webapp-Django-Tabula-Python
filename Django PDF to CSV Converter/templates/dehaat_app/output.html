@@ -1,0 +1,18 @@
+
+{% extends 'dehaat_app/base.html' %}
+
+{% block body_block %}
+<h1> Output </h1>
+<form method="GET" class="get-form"  action = "{% url 'download' output_file_path %}">
+
+        {% csrf_token %}
+        <p>
+          <h4>Transaction Amount for {{variable}} in {{year}} : Rs. {{output_amount}}</h4>
+        </p>
+
+        <p>
+        <button type="submit" class="btn btn-primary">Download CSV</button>
+        </p>
+</form>
+
+{% endblock %}
