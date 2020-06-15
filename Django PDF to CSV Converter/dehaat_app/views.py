@@ -5,7 +5,7 @@ from dehaat_app.forms import InputForm
 from dehaat_app.tasks import PdfConverter
 from dehaat_app.tasks import parse_csv
 from dehaat_app.tasks import retrieve_Amount
-from dehaat_app.tasks import run_use_cases
+from dehaat_app.tasks import run_use_cases, clear_UserInputs
 from dehaat_app.errors import UnexpectedFile, InvalidInput
 import csv
 import os
@@ -29,6 +29,8 @@ def input(request):
             else:
                 return render(request,'dehaat_app/input.html', {'form':form,'error':'File Not Found : Please Upload BalSheet.pdf'})
 
+            #Clearing the inputs in database stored in previous executions of the application 
+            clear_UserInputs()
             #Save the form data into Database defined in models.py
             form.save()
 

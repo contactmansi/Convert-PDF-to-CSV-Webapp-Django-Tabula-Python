@@ -31,6 +31,7 @@ def run_use_cases(user_input_file,input_variable, input_year):
                    'output_amount':output_amount,
                    'variable':input_variable,
                    'year':input_year}
+    
     return output_dict
 
 def PdfConverter(user_input_file):
