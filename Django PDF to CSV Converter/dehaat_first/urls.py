@@ -21,9 +21,10 @@ from django.conf.urls import url
 from django.conf.urls.static import static
 from django.conf import settings
 
+# Entry point to the application - routes to dehaat_app/urls.py
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('dehaat_app.urls')),
 ]
-
+# Added to upload file into the /media/files directory - Configured MEDIA_ROOT & MEDIA_URL in dehaat_first/settings.py
 urlpatterns+=static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

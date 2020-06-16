@@ -14,6 +14,8 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# All templates unders templates/dehaat_app for rendering the HTML
 TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
 
 # Quick-start development settings - unsuitable for production
@@ -30,6 +32,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+# Added the defined dehaat_app
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -52,6 +55,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'dehaat_first.urls'
 
+# Added the TEMPLATE_DIR path into the TEMPLATES dictionary
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -120,6 +124,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Configured MEDIA_ROOT & MEDIA_URL to allow uploading file as input into media/files directory
+# MEDIA_ROOT = BASE_DIR/media - becomes a root directory to all the documents
+# media/files/ directory specified in the models.py for uploading input_file to BASE_DIR/media/files - later used in tasks.py to identify the output_file_path
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 MEDIA_URL = '/media/'

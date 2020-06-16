@@ -7,3 +7,6 @@ class UnexpectedFile(Error):
 # Inputs not found in Transaction database
 class InvalidInput(Error):
     pass
+# Storage in DB was interrupted
+class StorageError():
+    pass
