@@ -8,10 +8,16 @@ from .models import Transaction, UserInput
 class UserInputAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Query Information', {'fields': ['variable', 'year']}),
-        (None,               {'fields': ['input_file']}),
+        ('Uploaded file',               {'fields': ['input_file']}),
     ]
     list_display = ('variable', 'year', 'input_file')
 
 
 admin.site.register(UserInput, UserInputAdmin)
-admin.site.register(Transaction)
+
+
+class TransactionAdmin(admin.ModelAdmin):
+    list_display = ('id', 'particulars', 'year', 'amount')
+
+
+admin.site.register(Transaction, TransactionAdmin)
